@@ -15,15 +15,49 @@
 }
 
 .ModalOpen {
-  /* Transitions don't work on "display". */
-  /* All the way visible: */
-  opacity: 1;
-  /* Put it exactly where it should be. */
-  transform: translateY(0);
+  /* "forwards" makes it stop the animation instead of repeating infinately. */
+  animation: openModal 0.4s, ease-out, forwards;
 }
 .ModalClosed {
   /* None of the way visible: */
   opacity: 0;
   /* Move it up by 100% (offscreen). */
   transform: translateY(-100%);
+}
+
+/* Ah, this looks like my CS125 code, although mine used "from" and "to". */
+@keyframes openModal {
+  0% {
+    /* None of the way visible: */
+    opacity: 0;
+    /* Move it up by 100% (offscreen). */
+    transform: translateY(-100%);
+  }
+  50% {
+    /* All the way visible: */
+    opacity: 1;
+    /* Slightly below where it should be, gives a "bump". */
+    transform: translateY(90%);
+  }
+  100% {
+    /* All the way visible: */
+    opacity: 1;
+    /* Put it exactly where it should be. */
+    transform: translateY(0%);
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(60%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }
