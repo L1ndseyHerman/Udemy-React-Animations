@@ -10,11 +10,20 @@
   top: 30%;
   left: 25%;
   width: 50%;
+  /* Change both the opacity and the transform over 3 seconds: */
+  transition: all 0.3s ease-out;
 }
 
 .ModalOpen {
-  display: block;
+  /* Transitions don't work on "display". */
+  /* All the way visible: */
+  opacity: 1;
+  /* Put it exactly where it should be. */
+  transform: translateY(0);
 }
 .ModalClosed {
-  display: none;
+  /* None of the way visible: */
+  opacity: 0;
+  /* Move it up by 100% (offscreen). */
+  transform: translateY(-100%);
 }
