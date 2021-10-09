@@ -19,10 +19,7 @@
   animation: openModal 0.4s, ease-out, forwards;
 }
 .ModalClosed {
-  /* None of the way visible: */
-  opacity: 0;
-  /* Move it up by 100% (offscreen). */
-  transform: translateY(-100%);
+  animation: closeModal 1s, ease-out, forwards;
 }
 
 /* Ah, this looks like my CS125 code, although mine used "from" and "to". */
@@ -50,7 +47,7 @@
 @keyframes closeModal {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
   50% {
     opacity: 0.8;
